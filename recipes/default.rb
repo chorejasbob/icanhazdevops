@@ -43,7 +43,7 @@ if platform_family?("debian")
 end
 
 if platform_family?("rhel")
-  %w(vim screen python ruby ruby-devel rubygems curl git gcc g++ make automake autoconf).each do |needed|
+  %w(vim screen python ruby ruby-devel rubygems curl git gcc make automake autoconf).each do |needed|
     package needed do
       action :install
     end
