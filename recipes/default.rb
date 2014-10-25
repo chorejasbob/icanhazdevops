@@ -9,8 +9,10 @@
 include_recipe 'apt'
 include_recipe 'apache2'
 
-apache_conf 'example' do
-  enable true
+web_app "icanhazdevops" do
+  server_name node['icanhazdevops.com']
+  server_aliases ["www.icanhazdevops.com"]
+  docroot "/var/www/icanhazdevops.com"
 end
 
 node.default["iptables"]["install_rules"] = false
