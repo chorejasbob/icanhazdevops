@@ -25,13 +25,24 @@ web_app "icanazdevops.com" do
   docroot "/var/www/vhosts/icanhazdevops.com"
 end
 
+template '/var/www/vhosts/icanhazdevops.com/index.html' do
+  source 'index.html.erb'
+end
+
 service "apache2" do
   supports :restart => true, :stop => true, :start => true
   action :restart
 end
 
+if platform_family?("debian")
+  %w(vim screen python ruby ruby-dev curl git make).each do |needed|
+    package needed do
+      action :install
+    end
+  end
+end
 
-%w(vim screen python ruby ruby-dev curl git make).each do |needed|
+%w(vim screen python ruby ruby-devel curl git make).each do |needed|
   package needed do
     action :install
   end
