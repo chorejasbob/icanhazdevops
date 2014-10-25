@@ -9,10 +9,18 @@
 include_recipe 'apt'
 include_recipe 'apache2'
 
-web_app "icanhazdevops" do
-  server_name node['icanhazdevops.com']
-  server_aliases ["www.icanhazdevops.com"]
-  docroot "/var/www/icanhazdevops.com"
+%w[ /var/www/vhosts /var/www/vhosts/icanhazdevops.com ].each do |path|
+  directory path do
+    owner node['apache']['user']
+    group node['apache']['group']
+    mode '0755'
+  end
+end
+
+web_app "icanazdevops.com" do
+  server_name "icanazdevops.com"
+  server_aliases "www.icanhazdevops.com"
+  docroot "/var/www/vhosts/icanhazdevops.com"
 end
 
 node.default["iptables"]["install_rules"] = false

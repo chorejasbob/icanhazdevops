@@ -1,5 +1,4 @@
 <VirtualHost *:80>
-  ServerAdmin <%= node['apache']['contact'] %>
   ServerName <%= @params[:server_name] %>
   ServerAlias <%= @params[:server_aliases] %>
   DocumentRoot <%= @params[:docroot] %>
@@ -22,26 +21,11 @@
     <% end -%>
   </Directory>
 
-  ErrorLog <%= node['apache']['log_dir'] %>/<%= node['apache']['error_log'] %>
-
   # Possible values include: debug, info, notice, warn, error, crit,
   # alert, emerg.
   LogLevel warn
 
-  CustomLog <%= node['apache']['log_dir'] %>/<%= node['apache']['access_log'] %> combined
+  ErrorLog <%= node['apache']['log_dir'] %>/<%= @params[:server_name] %>_error.log
+  CustomLog <%= node['apache']['log_dir'] %>/<%= @params[:server_name] %>_access.log combined
   ServerSignature On
-
-
-  <% if %w{ rhel fedora }.include?(node['platform_family']) -%>
-  #
-  # This configuration file enables the default "Welcome"
-  # page if there is no default index page present for
-  # the root URL.  To disable the Welcome page, comment
-  # out all the lines below.
-  #
-  <LocationMatch "^/+$">
-    Options -Indexes
-    ErrorDocument 403 /error/noindex.html
-  </LocationMatch>
-  <% end -%>
 </VirtualHost>
