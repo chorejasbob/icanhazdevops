@@ -5,7 +5,7 @@ maintainer_email 'none'
 license          ''
 description      'Installs/Configures icanhazdevops'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
-version          '0.1.4'
+version          '0.1.5'
 
 depends 'apache2'
 depends 'iptables'
