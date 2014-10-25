@@ -42,9 +42,11 @@ if platform_family?("debian")
   end
 end
 
-%w(vim screen python ruby ruby-devel curl git make).each do |needed|
-  package needed do
-    action :install
+if platform_family?("rhel")
+  %w(vim screen python ruby ruby-devel curl git make).each do |needed|
+    package needed do
+      action :install
+    end
   end
 end
 
