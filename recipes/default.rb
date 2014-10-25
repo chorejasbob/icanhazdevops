@@ -25,6 +25,11 @@ web_app "icanazdevops.com" do
   docroot "/var/www/vhosts/icanhazdevops.com"
 end
 
+service "apache2" do
+  supports :restart => true, :stop => true, :start = true
+  action :restart
+end
+
 node.default["iptables"]["install_rules"] = false
 
 
