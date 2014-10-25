@@ -37,7 +37,7 @@ end
   end
 end
 
-gem_package fog do
+gem_package "fog" do
   action :install
 end
 
