@@ -1,0 +1,16 @@
+DEPENDENCIES
+  apache2
+    git: git@github.com:viverae-cookbooks/apache2.git
+    revision: 37d0c385e401ff84c0b60d876553ee2dac564b48
+  icanhazdevops
+    path: .
+    metadata: true
+
+GRAPH
+  apache2 (2.0.1)
+    iptables (>= 0.0.0)
+    logrotate (>= 0.0.0)
+  icanhazdevops (0.1.0)
+    apache2 (>= 0.0.0)
+  iptables (0.14.0)
+  logrotate (1.7.0)
