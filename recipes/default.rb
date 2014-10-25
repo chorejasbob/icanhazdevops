@@ -48,6 +48,8 @@ if platform_family?("rhel")
       action :install
     end
   end
+  include_recipe 'ruby_build'
+  ruby_build_ruby "1.9.3-p0"
 end
 
 gem_package "fog" do
