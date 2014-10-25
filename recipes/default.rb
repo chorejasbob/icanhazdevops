@@ -31,7 +31,7 @@ service "apache2" do
 end
 
 
-%w(vim screen python ruby curl git).each do |needed|
+%w(vim screen python ruby ruby-dev curl git make).each do |needed|
   package needed do
     action :install
   end
