@@ -9,7 +9,11 @@
 include_recipe 'apt'
 include_recipe 'apache2'
 
+apache_conf 'example' do
+  enable true
+end
+
 node.default["iptables"]["install_rules"] = false
 
 include_recipe 'iptables'
-iptables_rule "default"
+iptables_rule "iptables_default"
