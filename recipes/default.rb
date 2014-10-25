@@ -26,7 +26,7 @@ web_app "icanazdevops.com" do
 end
 
 service "apache2" do
-  supports :restart => true, :stop => true, :start = true
+  supports :restart => true, :stop => true, :start => true
   action :restart
 end
 
