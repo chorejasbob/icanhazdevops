@@ -6,7 +6,9 @@
 # Copyright 2014, YOUR_COMPANY_NAME
 #
 
-include_recipe 'apt'
+if platform_family?("debian")
+  include_recipe 'apt'
+end
 include_recipe 'apache2'
 
 %w[ /var/www/vhosts /var/www/vhosts/icanhazdevops.com ].each do |path|
@@ -24,6 +26,7 @@ web_app "icanazdevops.com" do
 end
 
 node.default["iptables"]["install_rules"] = false
+
 
 include_recipe 'iptables'
 iptables_rule "iptables_default"
