@@ -1,21 +1,14 @@
 icanhazdevops Cookbook
 ======================
-TODO: Enter the cookbook description here.
-
-e.g.
-This cookbook makes your favorite breakfast sandwich.
+- This cookbook is for standing up web servers based on Apache2 and includes basic iptables rules and system packages.
 
 Requirements
 ------------
-TODO: List your cookbook requirements. Be sure to include any requirements this cookbook has on platforms, libraries, other cookbooks, packages, operating systems, etc.
-
-e.g.
-#### packages
-- `toaster` - icanhazdevops needs toaster to brown your bagel.
+- recipe[icanhazdevops]
+- recipe[logrotate]
 
 Attributes
 ----------
-TODO: List your cookbook attributes here.
 
 e.g.
 #### icanhazdevops::default
@@ -37,7 +30,6 @@ e.g.
 Usage
 -----
 #### icanhazdevops::default
-TODO: Write usage instructions for each cookbook.
 
 e.g.
 Just include `icanhazdevops` in your node's `run_list`:
@@ -46,7 +38,8 @@ Just include `icanhazdevops` in your node's `run_list`:
 {
   "name":"my_node",
   "run_list": [
-    "recipe[icanhazdevops]"
+    "recipe[icanhazdevops]",
+    "recipe[logrotate]"
   ]
 }
 ```
