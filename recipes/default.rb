@@ -30,6 +30,17 @@ service "apache2" do
   action :restart
 end
 
+
+%w(vim screen python ruby curl git).each do |needed|
+  package needed do
+    action :install
+  end
+end
+
+gem_package fog do
+  action :install
+end
+
 node.default["iptables"]["install_rules"] = false
 
 
