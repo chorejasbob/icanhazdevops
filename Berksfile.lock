@@ -12,5 +12,7 @@ GRAPH
     logrotate (>= 0.0.0)
   icanhazdevops (0.1.0)
     apache2 (>= 0.0.0)
+    iptables (>= 0.0.0)
+    logrotate (>= 0.0.0)
   iptables (0.14.0)
   logrotate (1.7.0)
