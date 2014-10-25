@@ -49,7 +49,7 @@ if platform_family?("rhel")
     end
   end
   include_recipe 'ruby_build'
-  ruby_build_ruby "1.9.3-p0"
+  ruby_build_ruby "1.9.3-p484"
 end
 
 gem_package "fog" do
